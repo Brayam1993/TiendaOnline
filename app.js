@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
-//app.use('/store', storeRoutes);
+app.use('/store', storeRoutes);
 
 app.listen(3000, () => {
     console.log('Server runs on port 3000');
