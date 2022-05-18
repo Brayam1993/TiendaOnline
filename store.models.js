@@ -42,7 +42,7 @@ Product.findById = function (id, result) {
 };
 
 Product.update = function (id, product, result) {
-    dbConn.query('UPDATE products SET pname=?', [product.pname, id], (err, res) => {
+    dbConn.query('UPDATE products SET pname=? WHERE id = ?', [product.pname, id], (err, res) => {
         if (err) {
             console.log('error:', err);
             result(null, err);
