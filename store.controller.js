@@ -16,16 +16,25 @@ exports.create = function (req, res) {
 exports.findAll = function (req, res) {
     Product.findAll((err, product) => {
         console.log('controller');
-        if (err) res.send(err);
+        try {
+            if (err) res.send(err);
         console.log('res', product);
         res.send(product);
+        } catch (ex) {
+            console.log('exception handle ++++', ex);
+        }
+        
     });
 };
 
 exports.findById = function (req, res) {
     Product.findById(req.params.id, (err, product) => {
-        if (err) res.send(err);
+        try {
+            if (err) res.send(err);
         res.json(product);
+        } catch (ex) {
+            console.log('exception handle ++++', ex);
+        }
     });
 };
 
@@ -42,7 +51,11 @@ exports.update = function (req, res) {
 
 exports.delete = function (req, res) {
     Product.delete(req.params.id, (err) => {
-        if (err) res.send(err);
+        try {
+            if (err) res.send(err);
         res.json({ error: false, message: 'Producto borrado'});
+        } catch (ex) {
+          console.log('exception handle ++++', ex);
+        }
     });
 };
