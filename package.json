@@ -1,0 +1,27 @@
+{
+  "name": "tiendaonline",
+  "version": "1.0.0",
+  "description": "Tienda Online Fake",
+  "main": "index.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brayam1993/TiendaOnline.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brayam1993/TiendaOnline/issues"
+  },
+  "homepage": "https://github.com/Brayam1993/TiendaOnline#readme",
+  "devDependencies": {
+    "eslint": "^8.15.0"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "mysql": "^2.18.1"
+  }
+}
