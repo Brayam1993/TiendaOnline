@@ -24,6 +24,13 @@ app.listen(3000, () => {
 const fetch = (...args) =>
   import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-fetch('https://fakestoreapi.com/products/1')
+const url = 'https://fakestoreapi.com/products/1'
+
+function getData(url, cb) {
+    fetch(url)
             .then(res=>res.json())
-            .then(json=>console.log(json))
+            .then(result=>cb(result))
+}  
+
+getData(url, (data) => console.log ({ data }))    
+       
