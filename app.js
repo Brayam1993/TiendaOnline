@@ -20,3 +20,10 @@ app.use('/store', storeRoutes);
 app.listen(3000, () => {
     console.log('Server runs on port 3000');
 });
+
+const fetch = (...args) =>
+  import('node-fetch').then(({ default: fetch }) => fetch(...args));
+
+fetch('https://fakestoreapi.com/products/1')
+            .then(res=>res.json())
+            .then(json=>console.log(json))
