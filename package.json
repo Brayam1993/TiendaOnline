@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Tienda Online Fake",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "node app.js",
     "start": "node app"

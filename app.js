@@ -36,8 +36,20 @@ async function fetchData() {
     return data;
 }
 
-let abc = await fetchData();
-console.log(abc,"afuera");
+function start() {
+  return fetchData();
+}
+
+ (async() => {
+  console.log('before start');
+
+  let abc = await start();
+  
+  console.log(abc,'after start');
+})();
+
+//console.log(abc,"afuera");
+
 
 /* TEST INSERT DATA TO DB FROM OBJECT*/
 
