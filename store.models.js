@@ -1,9 +1,13 @@
 const dbConn = require('./mysql_config');
 
 const Product = function (product) {
-    this.pname = product.pname;
-    this.created_at = new Date();
-    this.updated_at = new Date();
+    this.id = product.id;
+    this.title = product.title;
+    this.price = product.price;
+    this.description = product.description;
+    this.category = product.category;
+    this.image = product.image;
+    this.rating = product.rating.rate;
 };
 
 Product.create = function (newProduct, result) {
