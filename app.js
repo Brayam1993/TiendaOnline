@@ -27,7 +27,7 @@ const Product = require('./store.models');
 const fetch = (...args) =>
   import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-const url = 'https://fakestoreapi.com/products/1'
+const url = 'https://fakestoreapi.com/products'
 
 async function fetchData() {
     let response = await fetch(url);
@@ -45,15 +45,18 @@ function start() {
   console.log('before start');
 
   let dataOne = await start();
-  
+
   var doneTheStuff;
 
 function whathever(){
     if (!doneTheStuff) {
         doneTheStuff = true;
+
+        for (var i = 0; i < dataOne.length; i++) {
+
     try {  
         createApi = function (res) {
-            const newProduct = new Product(dataOne);
+            const newProduct = new Product(dataOne[i]);
             if (dataOne === Object && Object.keys(dataOne).length === 0) {
                res.status(400).send({ error: true, message: 'Please provide all required field'}); 
             } else {
@@ -67,24 +70,12 @@ function whathever(){
         } catch (ex) {
             console.log('exception handle ++++', ex);
         }
+    
+    }
+    
     }
 }
 
 whathever();
-
+console.log('after start');
 })();
-
-/* TEST INSERT DATA TO DB FROM OBJECT*/
-
-// const dataOne = {
-//   id: 1,
-//   title: 'Francon - Foldsack No. 1 Backpack, Fits 15 Laptops',
-//   price: 108.95,
-//   description: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-//   category: "men's clothing",
-//   image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-//   rating: { rate: 3.9, count: 120 }
-// }
-
-
-
