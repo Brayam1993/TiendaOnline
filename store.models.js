@@ -7,7 +7,7 @@ const Product = function (product) {
     this.description = product.description;
     this.category = product.category;
     this.image = product.image;
-    this.rating = product.rating.rate;
+    this.rating = product.rating;
 };
 
 Product.create = function (newProduct, result) {

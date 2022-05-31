@@ -1,25 +1,25 @@
 
-// const express = require ('express');
+const express = require ('express');
 
-// const bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 
-// const app = express();
+const app = express();
 
-// const storeRoutes = require('./store.routes')
+const storeRoutes = require('./store.routes')
 
-// app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: true}));
 
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
-// app.get('/', (req, res) => {
-//     res.send('Hello World');
-// });
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
 
-// app.use('/store', storeRoutes);
+app.use('/store', storeRoutes);
 
-// app.listen(3000, () => {
-//     console.log('Server runs on port 3000');
-// });
+app.listen(3000, () => {
+    console.log('Server runs on port 3000');
+});
 
 /* FETCH */
 const Product = require('./store.models');
@@ -50,7 +50,7 @@ function start() {
 
 function whathever(){
     if (!doneTheStuff) {
-        doneTheStuff = true;
+    doneTheStuff = true;    
 
         for (var i = 0; i < dataOne.length; i++) {
 
