@@ -22,47 +22,31 @@
 // });
 
 /* FETCH */
-
-// const fetch = (...args) =>
-//   import('node-fetch').then(({ default: fetch }) => fetch(...args));
-
-// const url = 'https://fakestoreapi.com/products/1'
-
-// async function fetchData() {
-//     let response = await fetch(url);
-//     let data = await response.json();
-//     data = JSON.stringify(data);
-//     data = JSON.parse(data);
-//     return data;
-// }
-
-// function start() {
-//   return fetchData();
-// }
-
-//  (async() => {
-//   console.log('before start');
-
-//   let abc = await start();
-  
-//   console.log(abc,'after start');
-// })();
-
-/* TEST INSERT DATA TO DB FROM OBJECT*/
-
-const dataOne = {
-  id: 1,
-  title: 'Francon - Foldsack No. 1 Backpack, Fits 15 Laptops',
-  price: 108.95,
-  description: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-  category: "men's clothing",
-  image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-  rating: { rate: 3.9, count: 120 }
-}
-
 const Product = require('./store.models');
 
-var doneTheStuff;
+const fetch = (...args) =>
+  import('node-fetch').then(({ default: fetch }) => fetch(...args));
+
+const url = 'https://fakestoreapi.com/products/1'
+
+async function fetchData() {
+    let response = await fetch(url);
+    let data = await response.json();
+    data = JSON.stringify(data);
+    data = JSON.parse(data);
+    return data;
+}
+
+function start() {
+  return fetchData();
+}
+
+ (async() => {
+  console.log('before start');
+
+  let dataOne = await start();
+  
+  var doneTheStuff;
 
 function whathever(){
     if (!doneTheStuff) {
@@ -87,3 +71,20 @@ function whathever(){
 }
 
 whathever();
+
+})();
+
+/* TEST INSERT DATA TO DB FROM OBJECT*/
+
+// const dataOne = {
+//   id: 1,
+//   title: 'Francon - Foldsack No. 1 Backpack, Fits 15 Laptops',
+//   price: 108.95,
+//   description: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
+//   category: "men's clothing",
+//   image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+//   rating: { rate: 3.9, count: 120 }
+// }
+
+
+
