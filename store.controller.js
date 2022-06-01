@@ -3,6 +3,8 @@ const Product = require('./store.models');
 exports.create = function (req, res) {
     const newProduct = new Product(req.body);
 
+    try {
+
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
        res.status(400).send({ error: true, message: 'Please provide all required field'}); 
     } else {
@@ -11,6 +13,10 @@ exports.create = function (req, res) {
             res.json({ error: false, message: 'Product added successfully!', data: product });
         });
     }
+
+     } catch (ex) {
+        console.log('exception handle ++++', ex);
+     }
 };
 
 exports.findAll = function (req, res) {

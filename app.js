@@ -62,7 +62,6 @@ function whathever(){
             } else {
                 Product.create(newProduct, (err, product) => {
                     if (err) console.log(err);
-                    //res.json({ error: false, message: 'Product added successfully!', data: product });
                 });
             }
         };
@@ -70,9 +69,7 @@ function whathever(){
         } catch (ex) {
             console.log('exception handle ++++', ex);
         }
-    
-    }
-    
+    }    
     }
 }
 
