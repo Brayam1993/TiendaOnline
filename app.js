@@ -17,6 +17,13 @@ app.get('/', (req, res) => {
 
 app.use('/store', storeRoutes);
 
+app.use((error, req, res, next) => {
+    res.status(400).json({
+        status: 'error',
+        message: error.message,
+    });
+});
+
 app.listen(3000, () => {
     console.log('Server runs on port 3000');
 });
@@ -47,10 +54,10 @@ function start() {
   let dataOne = await start();
 
   var doneTheStuff;
-
+doneTheStuff = true;
 function whathever(){
     if (!doneTheStuff) {
-    doneTheStuff = true;    
+        
 
         for (var i = 0; i < dataOne.length; i++) {
 

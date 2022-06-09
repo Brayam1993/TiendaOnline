@@ -1,9 +1,10 @@
 const express = require('express');
+const validations = require('./validations');
 
 const router = express.Router();
 const storeController = require('./store.controller');
 
-router.post('/', storeController.create);
+router.post('/',validations.validate(validations.createProductValidation),storeController.create);
 
 router.get('/', storeController.findAll);
 
