@@ -9,13 +9,15 @@ CREATE DATABASE fake_store_db;
 
 
 CREATE  TABLE IF NOT EXISTS `products` (
-  `id` bigint unsigned unique,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(255) NOT NULL,
   `price` decimal(11,2) unsigned DEFAULT '0.00',
   `description` VARCHAR(1100) NOT NULL,
   `category` VARCHAR(255) NOT NULL,
   `image` VARCHAR(255) NOT NULL,
   `rating` VARCHAR(255) ,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
