@@ -54,10 +54,10 @@ function start() {
   let dataOne = await start();
 
   var doneTheStuff;
-doneTheStuff = true;
+
 function whathever(){
     if (!doneTheStuff) {
-        
+    doneTheStuff = true;    
 
         for (var i = 0; i < dataOne.length; i++) {
 
