@@ -1,4 +1,5 @@
 const yup = require('yup');
+const ValidationError = require('./errors/validationError');
 
 function validate(validation) {
     return (req, res, next) => {
@@ -7,7 +8,7 @@ function validate(validation) {
 
             next();
         } catch (error) {
-            next(error);
+            next(new ValidationError(error));
         }
     };
 }

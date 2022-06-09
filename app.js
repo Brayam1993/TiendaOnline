@@ -7,6 +7,16 @@ const app = express();
 
 const storeRoutes = require('./store.routes')
 
+const errorMiddleware = require('./middleware/errors')
+
+process.on('unhandledRejection', (error) => {
+    console.log(error);
+});
+
+process.on('uncaughtException', (error) => {
+    console.log(error);
+});
+
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.use(bodyParser.json());
@@ -17,12 +27,7 @@ app.get('/', (req, res) => {
 
 app.use('/store', storeRoutes);
 
-app.use((error, req, res, next) => {
-    res.status(400).json({
-        status: 'error',
-        message: error.message,
-    });
-});
+app.use(errorMiddleware);
 
 app.listen(3000, () => {
     console.log('Server runs on port 3000');

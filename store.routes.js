@@ -1,10 +1,11 @@
 const express = require('express');
 const validations = require('./validations');
+const isAdminMiddleware = require('./middleware/isAdmin');
 
 const router = express.Router();
 const storeController = require('./store.controller');
 
-router.post('/',validations.validate(validations.createProductValidation),storeController.create);
+router.post('/',isAdminMiddleware,validations.validate(validations.createProductValidation),storeController.create);
 
 router.get('/', storeController.findAll);
 
